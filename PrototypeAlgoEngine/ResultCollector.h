@@ -4,7 +4,7 @@
 #include <memory>
 #include <set>
 
-class Signal;
+class SignalBase;
 
 class ResultCollector : public Serializable
 {
@@ -13,13 +13,6 @@ public:
     virtual ~ResultCollector();
 
 private:
-    std::set<std::shared_ptr<Signal> > _signals; // Change to map, keyed by stringified concrete class name
+    std::set<std::shared_ptr<SignalBase> > _signals; // Change to map, keyed by stringified concrete class name
 };
 
-ResultCollector::ResultCollector()
-{
-}
-
-ResultCollector::~ResultCollector()
-{
-}

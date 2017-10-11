@@ -17,6 +17,9 @@ public:
 
     bool addAlgoModule(std::unique_ptr<AlgoModule> algo); // unique_ptr: assume for now that AlgoFramework takes ownership
 
+    // Overrides
+    virtual std::string versionString() override;
+
 private:
     SettingsManager _settings_mgr;
     AlgoSequencer _algo_sequencer;

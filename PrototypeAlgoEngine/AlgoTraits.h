@@ -3,32 +3,30 @@
 #include <cstdint>
 
 class BasePrecedence {};
-class VoidSettings {};
-class VoidSignal {};
+//class VoidSettings {};
+//class VoidSignal {};
 
-template <class SE, class SG>
-class AlgoTraitsFoundation
+typedef int16_t Precedence;
+
+template <class A, class P> 
+class AlgoTraits;
+
+template<>
+class AlgoTraits<BasePrecedence, BasePrecedence>
 {
 public:
-    typedef typename SE SettingsType;
-    typedef typename SG SignalType;
+    typedef BasePrecedence PRIOR;
+    static constexpr Precedence PRECEDENCE = 0;
 };
 
-template <class SE, class SG, class P = BasePrecedence>
-class AlgoTraits : public AlgoTraitsFoundation<SE, SG>
+template <class A, class P = BasePrecedence>
+// To support multiple precedents: Use variadic templates, constexpr and initializer lists with std::max to generate precedence at compile time
+class AlgoTraits
 {
 public:
-    static const int16_t PRECEDENCE = P::PRECEDENCE + 1;
-    typedef typename SE SettingsType;
-    typedef typename SG SignalType;
-};
-
-template<class SE, class SG>
-class AlgoTraits<SE, SG, BasePrecedence>
-{
-public:
-    static const int16_t PRECEDENCE = 0;
-    typedef typename SE SettingsType;
-    typedef typename SG SignalType;
+    typedef P PRIOR;
+    static constexpr Precedence PRECEDENCE = AlgoTraits<P, AlgoTraits<P>::PRIOR>::PRECEDENCE + 1;
+    //typedef typename A::Settings SettingsType;
+    //typedef typename A::Signals SignalsType;
 };
 

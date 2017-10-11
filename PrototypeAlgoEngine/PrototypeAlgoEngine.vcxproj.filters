@@ -12,7 +12,7 @@
     <Filter Include="Source Files\framework">
       <UniqueIdentifier>{e46c2597-01a7-4f9f-a086-35a6ef390b18}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\example">
+    <Filter Include="Source Files\application">
       <UniqueIdentifier>{faff3778-3b4f-460d-8009-713368c0dfd8}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
@@ -56,9 +56,6 @@
     <ClInclude Include="Signal.h">
       <Filter>Source Files\framework</Filter>
     </ClInclude>
-    <ClInclude Include="InputSettings.h">
-      <Filter>Source Files\framework</Filter>
-    </ClInclude>
     <ClInclude Include="AlgoSequencer.h">
       <Filter>Source Files\framework</Filter>
     </ClInclude>
@@ -70,6 +67,27 @@
     </ClInclude>
     <ClInclude Include="AlgoFramework.h">
       <Filter>Source Files\framework</Filter>
+    </ClInclude>
+    <ClInclude Include="AlgoA.h">
+      <Filter>Source Files\application</Filter>
+    </ClInclude>
+    <ClInclude Include="AlgoB.h">
+      <Filter>Source Files\application</Filter>
+    </ClInclude>
+    <ClInclude Include="AlgoASettings.h">
+      <Filter>Source Files\application</Filter>
+    </ClInclude>
+    <ClInclude Include="AlgoAResults.h">
+      <Filter>Source Files\application</Filter>
+    </ClInclude>
+    <ClInclude Include="Polymorphic.h">
+      <Filter>Source Files\framework</Filter>
+    </ClInclude>
+    <ClInclude Include="AlgoBSettings.h">
+      <Filter>Source Files\application</Filter>
+    </ClInclude>
+    <ClInclude Include="AlgoBResults.h">
+      <Filter>Source Files\application</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -87,6 +105,36 @@
     </ClCompile>
     <ClCompile Include="AlgoSettings.cpp">
       <Filter>Source Files\framework</Filter>
+    </ClCompile>
+    <ClCompile Include="ResultCollector.cpp">
+      <Filter>Source Files\framework</Filter>
+    </ClCompile>
+    <ClCompile Include="AlgoSequencer.cpp">
+      <Filter>Source Files\framework</Filter>
+    </ClCompile>
+    <ClCompile Include="SettingsManager.cpp">
+      <Filter>Source Files\framework</Filter>
+    </ClCompile>
+    <ClCompile Include="AlgoA.cpp">
+      <Filter>Source Files\application</Filter>
+    </ClCompile>
+    <ClCompile Include="AlgoB.cpp">
+      <Filter>Source Files\application</Filter>
+    </ClCompile>
+    <ClCompile Include="AlgoASettings.cpp">
+      <Filter>Source Files\application</Filter>
+    </ClCompile>
+    <ClCompile Include="AlgoAResults.cpp">
+      <Filter>Source Files\application</Filter>
+    </ClCompile>
+    <ClCompile Include="Signal.cpp">
+      <Filter>Source Files\framework</Filter>
+    </ClCompile>
+    <ClCompile Include="AlgoBSettings.cpp">
+      <Filter>Source Files\application</Filter>
+    </ClCompile>
+    <ClCompile Include="AlgoBResults.cpp">
+      <Filter>Source Files\application</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

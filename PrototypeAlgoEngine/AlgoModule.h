@@ -13,7 +13,12 @@ public:
     virtual ~AlgoModule();
 
     virtual void setSettings(const AlgoSettings&) = 0;
+    virtual Precedence precedence() const = 0;
 
 private:
 
 };
+
+
+#define DECLARE_ALGO_PRECEDENCE virtual Precedence precedence() const {return AlgoTraits<decltype(*this), AlgoTraits<decltype(*this)>::PRIOR>::PRECEDENCE;}
+

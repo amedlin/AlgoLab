@@ -1,31 +1,33 @@
 #pragma once
 
 #include "serializable.h"
+#include "Polymorphic.h"
 
-#include <map>
-#include <vector>
+#include <string>
 
-template<typename KeyType, typename ValueType>
-class SignalBase : public Serializable
+class SignalBase : public PolyMorphic, public Serializable
 {
 public:
     virtual ~SignalBase()
     {
     }
 
-protected:
-    using Container = std::map<KeyType, std::vector<ValueType> >;
+    const std::string& signalName() const
+    {
+        return _name;
+    }
 
+protected:
     SignalBase()
     {
     }
 
-    Container& data()
+    void setSignalName(const std::string& name)
     {
-        return _signal_data;
+        _name = name;
     }
 
 private:
-    Container _signal_data;
+    std::string _name;
 };
 

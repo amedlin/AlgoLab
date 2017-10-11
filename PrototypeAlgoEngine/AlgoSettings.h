@@ -1,23 +1,14 @@
 #pragma once
 
 #include "serializable.h"
+#include "Polymorphic.h"
+#include "Introspector.h"
+#include "Versioned.h"
 
-class AlgoSettings : public Serializable
+class AlgoSettings : public PolyMorphic, public Serializable, public Introspector, public Versioned
 {
 public:
     virtual ~AlgoSettings();
-
-    template <class T>
-    T* asType()
-    {
-        return dynamic_cast<T>(this);
-    }
-
-    template <class T>
-    T& asType()
-    {
-        return dynamic_cast<T&>(*this);
-    }
 
 protected:
     AlgoSettings();

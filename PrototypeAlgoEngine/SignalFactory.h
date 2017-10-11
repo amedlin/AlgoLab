@@ -2,7 +2,7 @@
 
 #include <memory>
 
-class Signal;
+class SignalBase;
 
 class SignalFactory
 {
@@ -11,7 +11,7 @@ public:
     {
     }
 
-    virtual std::shared_ptr<Signal> createSignal() = 0;
+    virtual std::shared_ptr<SignalBase> createSignal() = 0;
 
 protected:
     SignalFactory()

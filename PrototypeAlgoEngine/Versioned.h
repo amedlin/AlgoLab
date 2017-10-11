@@ -5,21 +5,17 @@
 class Versioned
 {
 public:
-    virtual ~Versioned();
+    virtual ~Versioned()
+    {
+    }
 
     virtual std::string versionString() = 0;
 
 protected:
-    Versioned();
+    Versioned() 
+    {
+    }
 
 private:
 
 };
-
-Versioned::Versioned()
-{
-}
-
-Versioned::~Versioned()
-{
-}

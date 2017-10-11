@@ -145,14 +145,20 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AlgoA.h" />
+    <ClInclude Include="AlgoAResults.h" />
+    <ClInclude Include="AlgoASettings.h" />
+    <ClInclude Include="AlgoB.h" />
+    <ClInclude Include="AlgoBResults.h" />
+    <ClInclude Include="AlgoBSettings.h" />
     <ClInclude Include="AlgoFramework.h" />
     <ClInclude Include="AlgoModule.h" />
     <ClInclude Include="AlgoSequencer.h" />
     <ClInclude Include="AlgoSettings.h" />
     <ClInclude Include="AlgoSettingsFactory.h" />
     <ClInclude Include="AlgoTraits.h" />
-    <ClInclude Include="InputSettings.h" />
     <ClInclude Include="Introspector.h" />
+    <ClInclude Include="Polymorphic.h" />
     <ClInclude Include="ResultCollector.h" />
     <ClInclude Include="serializable.h" />
     <ClInclude Include="SettingsManager.h" />
@@ -164,10 +170,20 @@
     <ClInclude Include="Versioned.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="AlgoA.cpp" />
+    <ClCompile Include="AlgoAResults.cpp" />
+    <ClCompile Include="AlgoASettings.cpp" />
+    <ClCompile Include="AlgoB.cpp" />
+    <ClCompile Include="AlgoBResults.cpp" />
+    <ClCompile Include="AlgoBSettings.cpp" />
     <ClCompile Include="AlgoFramework.cpp" />
     <ClCompile Include="AlgoModule.cpp" />
+    <ClCompile Include="AlgoSequencer.cpp" />
     <ClCompile Include="AlgoSettings.cpp" />
     <ClCompile Include="PrototypeAlgoEngine.cpp" />
+    <ClCompile Include="ResultCollector.cpp" />
+    <ClCompile Include="SettingsManager.cpp" />
+    <ClCompile Include="Signal.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
