@@ -151,6 +151,9 @@
     <ClInclude Include="AlgoB.h" />
     <ClInclude Include="AlgoBResults.h" />
     <ClInclude Include="AlgoBSettings.h" />
+    <ClInclude Include="AlgoC.h" />
+    <ClInclude Include="AlgoCResults.h" />
+    <ClInclude Include="AlgoCSettings.h" />
     <ClInclude Include="AlgoFramework.h" />
     <ClInclude Include="AlgoModule.h" />
     <ClInclude Include="AlgoSequencer.h" />
@@ -175,6 +178,9 @@
     <ClCompile Include="AlgoB.cpp" />
     <ClCompile Include="AlgoBResults.cpp" />
     <ClCompile Include="AlgoBSettings.cpp" />
+    <ClCompile Include="AlgoC.cpp" />
+    <ClCompile Include="AlgoCResults.cpp" />
+    <ClCompile Include="AlgoCSettings.cpp" />
     <ClCompile Include="AlgoFramework.cpp" />
     <ClCompile Include="AlgoModule.cpp" />
     <ClCompile Include="AlgoSequencer.cpp" />

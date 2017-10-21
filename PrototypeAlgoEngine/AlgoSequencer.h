@@ -3,22 +3,9 @@
 #include "serializable.h"
 #include "AlgoModule.h"
 
-//#include <list>
-//#include <vector>
+#include <unordered_set>
 #include <memory>
 #include <map>
-#include <utility>
-
-//class AlgoSequenceNode
-//{
-//public:
-//    AlgoSequenceNode() {}
-//    ~AlgoSequenceNode() {}
-//
-//private:
-//    std::list<std::vector<AlgoSequenceNode*> > _precedents;
-//    AlgoModule* _target;
-//};
 
 
 class AlgoSequencer : public Serializable
@@ -27,14 +14,15 @@ public:
     AlgoSequencer();
     ~AlgoSequencer();
 
-    void add(std::shared_ptr<AlgoModule> algo_module)
-    {
-        _sequence.insert(std::make_pair(algo_module->precedence(), algo_module));
-    }
+    using ModuleSet = std::unordered_set<std::shared_ptr<AlgoModule> >;
+    using Sequence = std::map<AlgoModule::Precedence, ModuleSet>;
 
-    std::string sequence() const;
+    void add(std::shared_ptr<AlgoModule> algo_module);
+
+    std::string getRunSequence() const;
 
 private:
-    //AlgoSequenceNode* _precedence_tree;
-    std::multimap<AlgoModule::Precedence, std::shared_ptr<AlgoModule> > _sequence;
+    Sequence _sequence;
+
+    const unsigned int num_cpu_cores;
 };

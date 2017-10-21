@@ -86,6 +86,15 @@
     <ClInclude Include="AlgoBResults.h">
       <Filter>Source Files\application</Filter>
     </ClInclude>
+    <ClInclude Include="AlgoC.h">
+      <Filter>Source Files\application</Filter>
+    </ClInclude>
+    <ClInclude Include="AlgoCResults.h">
+      <Filter>Source Files\application</Filter>
+    </ClInclude>
+    <ClInclude Include="AlgoCSettings.h">
+      <Filter>Source Files\application</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -131,6 +140,15 @@
       <Filter>Source Files\application</Filter>
     </ClCompile>
     <ClCompile Include="AlgoBResults.cpp">
+      <Filter>Source Files\application</Filter>
+    </ClCompile>
+    <ClCompile Include="AlgoC.cpp">
+      <Filter>Source Files\application</Filter>
+    </ClCompile>
+    <ClCompile Include="AlgoCResults.cpp">
+      <Filter>Source Files\application</Filter>
+    </ClCompile>
+    <ClCompile Include="AlgoCSettings.cpp">
       <Filter>Source Files\application</Filter>
     </ClCompile>
   </ItemGroup>

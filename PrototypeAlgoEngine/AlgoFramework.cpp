@@ -25,6 +25,6 @@ std::string AlgoFramework::versionString()
 
 void AlgoFramework::displaySequence()
 {
-    std::cout << _algo_sequencer.sequence() << std::endl;
+    std::cout << _algo_sequencer.getRunSequence() << std::endl;
 }
 

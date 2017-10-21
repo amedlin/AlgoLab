@@ -26,7 +26,19 @@ public:
         return _name;
     }
 
-    static void dependsOn(std::shared_ptr<AlgoModule> precedent, std::shared_ptr<AlgoModule> dependent);
+    bool isRoot() const
+    {
+        return _is_root;
+    }
+
+    bool networkIsClosed();
+
+    bool hasPrecedents() const
+    {
+        return !_precedents.empty();
+    }
+
+    static void setModuleDependency(std::shared_ptr<AlgoModule> precedent, std::shared_ptr<AlgoModule> dependent);
 
     AlgoModule(const AlgoModule &) = delete; 
     AlgoModule & operator=(const AlgoModule &) = delete; 
@@ -49,5 +61,11 @@ private:
     std::list<std::weak_ptr<AlgoModule> > _subsequents;
 
     Precedence _precedence = { 0 };
+
+    // The "root" node in the network is the unique node that must be used to trigger execution
+    // without deadlock in the situation where the network dependencies are cyclic.
+    bool _is_root;
+
+    int _network_visit_count = { 0 };
 };
 

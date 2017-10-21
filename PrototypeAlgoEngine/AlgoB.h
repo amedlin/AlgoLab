@@ -1,14 +1,13 @@
 #pragma once
 
 #include "AlgoModule.h"
-#include "AlgoA.h"
 
 class AlgoB : public AlgoModule
 {
 public:
     virtual ~AlgoB();
 
-    static std::unique_ptr<AlgoModule> create();
+    static std::unique_ptr<AlgoModule> create(const std::string& algo_name = "");
 
     // Overrides
     virtual std::shared_ptr<AlgoSettings> createAlgoSettings() override;
@@ -16,7 +15,7 @@ public:
     virtual void setSettings(const AlgoSettings&) override;
 
 protected:
-    AlgoB();
+    AlgoB(const std::string& algo_name);
 
 private:
 

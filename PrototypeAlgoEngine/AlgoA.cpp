@@ -3,18 +3,17 @@
 #include "AlgoASettings.h"
 #include "AlgoAResults.h"
 
-AlgoA::AlgoA() : AlgoModule("Algorithm A")
+AlgoA::AlgoA(const std::string& algo_name) : AlgoModule(algo_name)
 {
 }
-
 
 AlgoA::~AlgoA()
 {
 }
 
-std::unique_ptr<AlgoModule> AlgoA::create()
+std::unique_ptr<AlgoModule> AlgoA::create(const std::string& algo_name)
 {
-    return std::unique_ptr<AlgoA>(new AlgoA);
+    return std::unique_ptr<AlgoA>(new AlgoA(algo_name));
 }
 
 std::shared_ptr<AlgoSettings> AlgoA::createAlgoSettings()
