@@ -38,7 +38,7 @@ public:
         return !_precedents.empty();
     }
 
-    static void setModuleDependency(std::shared_ptr<AlgoModule> precedent, std::shared_ptr<AlgoModule> dependent);
+    static bool setModuleDependency(std::shared_ptr<AlgoModule> precedent, std::shared_ptr<AlgoModule> dependent);
 
     AlgoModule(const AlgoModule &) = delete; 
     AlgoModule & operator=(const AlgoModule &) = delete; 
@@ -50,7 +50,7 @@ protected:
 
 private:
 
-    void reevaluatePrecedence();
+    bool reevaluatePrecedence();
 
     std::string _name;
 
@@ -64,6 +64,7 @@ private:
 
     // The "root" node in the network is the unique node that must be used to trigger execution
     // without deadlock in the situation where the network dependencies are cyclic.
+    // The root node can be triggered to execute on demand, irrespective of its precedent modules.
     bool _is_root;
 
     int _network_visit_count = { 0 };

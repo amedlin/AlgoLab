@@ -9,6 +9,7 @@
 #include "AlgoC.h"
 
 #include <memory>
+#include <iostream>
 
 int main()
 {
@@ -20,15 +21,18 @@ int main()
     std::shared_ptr<AlgoModule> algo_A_2(AlgoA::create("Algo_A_2"));
     std::shared_ptr<AlgoModule> algo_C(AlgoC::create("Algo_C"));
 
-    AlgoModule::setModuleDependency(algo_B, algo_A_1);
-    AlgoModule::setModuleDependency(algo_A, algo_B);
-    AlgoModule::setModuleDependency(algo_A, algo_C);
-    AlgoModule::setModuleDependency(algo_A_1, algo_A_2);
-    AlgoModule::setModuleDependency(algo_C, algo_A_2);
+    bool result;
+    result = AlgoModule::setModuleDependency(algo_B, algo_A_1);
+    result = AlgoModule::setModuleDependency(algo_A, algo_B);
+    result = AlgoModule::setModuleDependency(algo_A, algo_C);
+    result = AlgoModule::setModuleDependency(algo_A_1, algo_A_2);
+    result = AlgoModule::setModuleDependency(algo_C, algo_A_2);
 
     // Experiment: handle cyclic dependency
-    AlgoModule::setModuleDependency(algo_A_2, algo_A);
+    result = AlgoModule::setModuleDependency(algo_A_2, algo_A);
 
+    // Experiment: add nasty cyclic dependency  not involving the root node
+    result = AlgoModule::setModuleDependency(algo_A_2, algo_B);
 
     framework.addAlgoModule(algo_A);
     framework.addAlgoModule(algo_C);
