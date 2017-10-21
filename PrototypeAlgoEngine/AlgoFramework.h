@@ -15,10 +15,12 @@ public:
     AlgoFramework();
     ~AlgoFramework();
 
-    bool addAlgoModule(std::unique_ptr<AlgoModule> algo); // unique_ptr: assume for now that AlgoFramework takes ownership
+    bool addAlgoModule(std::shared_ptr<AlgoModule> algo); // unique_ptr: assume for now that AlgoFramework takes ownership
 
     // Overrides
     virtual std::string versionString() override;
+
+    void displaySequence();
 
 private:
     SettingsManager _settings_mgr;

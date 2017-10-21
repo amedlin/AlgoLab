@@ -13,11 +13,14 @@ int main()
 {
     AlgoFramework framework;
 
-    std::unique_ptr<AlgoA> algo_A(new AlgoA);
-    std::unique_ptr<AlgoB> algo_B(new AlgoB);
+    std::shared_ptr<AlgoModule> algo_A(AlgoA::create());
+    std::shared_ptr<AlgoModule> algo_B(AlgoB::create());
+    AlgoModule::dependsOn(algo_A, algo_B);
 
-    framework.addAlgoModule(std::move(algo_B));
-    framework.addAlgoModule(std::move(algo_A));
+    framework.addAlgoModule(algo_B);
+    framework.addAlgoModule(algo_A);
+
+    framework.displaySequence();
 
     return 0;
 }

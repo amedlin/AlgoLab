@@ -156,7 +156,6 @@
     <ClInclude Include="AlgoSequencer.h" />
     <ClInclude Include="AlgoSettings.h" />
     <ClInclude Include="AlgoSettingsFactory.h" />
-    <ClInclude Include="AlgoTraits.h" />
     <ClInclude Include="Introspector.h" />
     <ClInclude Include="Polymorphic.h" />
     <ClInclude Include="ResultCollector.h" />

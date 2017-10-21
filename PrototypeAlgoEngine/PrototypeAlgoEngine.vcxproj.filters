@@ -29,9 +29,6 @@
     <ClInclude Include="AlgoSettingsFactory.h">
       <Filter>Source Files\framework</Filter>
     </ClInclude>
-    <ClInclude Include="AlgoTraits.h">
-      <Filter>Source Files\framework</Filter>
-    </ClInclude>
     <ClInclude Include="serializable.h">
       <Filter>Source Files\framework</Filter>
     </ClInclude>

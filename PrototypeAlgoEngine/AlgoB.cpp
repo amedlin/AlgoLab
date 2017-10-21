@@ -3,13 +3,18 @@
 #include "AlgoBSettings.h"
 #include "AlgoBResults.h"
 
-AlgoB::AlgoB()
+AlgoB::AlgoB() : AlgoModule("Algorithm B")
 {
 }
 
 
 AlgoB::~AlgoB()
 {
+}
+
+std::unique_ptr<AlgoModule> AlgoB::create()
+{
+    return std::unique_ptr<AlgoB>(new AlgoB);
 }
 
 std::shared_ptr<AlgoSettings> AlgoB::createAlgoSettings()
