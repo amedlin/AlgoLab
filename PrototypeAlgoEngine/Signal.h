@@ -7,13 +7,25 @@
 #include <map>
 #include <vector>
 
-template<typename KeyType, typename ValueType>
+namespace algolab
+{
+
+// Encapsulates time series of one particular signal.
+template<typename _KeyType, typename _ValueType>
 class Signal : public Introspector, public SignalBase, public Versioned
 {
 public:
     virtual ~Signal()
     {
     }
+
+    using ValueType = _ValueType;
+    using KeyType = _KeyType;
+
+    //void append(const KeyType k, const& ValueType v)
+    //{
+    //    _signal_data
+    //}
 
 protected:
     Signal()
@@ -32,3 +44,4 @@ private:
     Container _signal_data;
 };
 
+}

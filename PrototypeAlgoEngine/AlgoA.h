@@ -4,17 +4,17 @@
 #include "AlgoASettings.h"
 //#include "AlgoAResults.h"
 
-class AlgoA : public AlgoModule
+class AlgoA : public algolab::AlgoModule
 {
 public:
     virtual ~AlgoA();
 
-    static std::unique_ptr<AlgoModule> create(const std::string& algo_name = "");
+    static std::unique_ptr<algolab::AlgoModule> create(const std::string& algo_name = "");
 
     // Overrides
-    virtual std::shared_ptr<AlgoSettings> createAlgoSettings() override;
-    virtual std::shared_ptr<SignalBase> createSignal() override;
-    virtual void setSettings(const AlgoSettings&) override;
+    virtual std::shared_ptr<algolab::AlgoSettings> createAlgoSettings() override;
+    virtual std::shared_ptr<algolab::SignalBase> createSignal() override;
+    virtual void setSettings(const algolab::AlgoSettings&) override;
 
 protected:
     AlgoA(const std::string& algo_name);

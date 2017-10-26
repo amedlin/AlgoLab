@@ -6,6 +6,8 @@
 #include <stdexcept>
 #include <iostream>
 
+using namespace algolab;
+
 AlgoModule::AlgoModule(const std::string& name)
     : _name(name)
     , _is_root(true)

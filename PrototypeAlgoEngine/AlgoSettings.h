@@ -5,6 +5,9 @@
 #include "Introspector.h"
 #include "Versioned.h"
 
+namespace algolab
+{
+
 class AlgoSettings : public PolyMorphic, public Serializable, public Introspector, public Versioned
 {
 public:
@@ -16,3 +19,5 @@ protected:
 private:
 
 };
+
+}

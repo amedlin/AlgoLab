@@ -2,6 +2,8 @@
 
 #include "AlgoSettings.h"
 
+using namespace algolab;
+
 AlgoSettings::AlgoSettings()
 {
 }

@@ -2,6 +2,9 @@
 
 #include <memory>
 
+namespace algolab
+{
+
 class SignalBase;
 
 class SignalFactory
@@ -22,3 +25,4 @@ private:
 
 };
 
+}

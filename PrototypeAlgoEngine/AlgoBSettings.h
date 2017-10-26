@@ -1,7 +1,7 @@
 #pragma once
 #include "AlgoSettings.h"
 
-class AlgoBSettings : public AlgoSettings
+class AlgoBSettings : public algolab::AlgoSettings
 {
 public:
     AlgoBSettings();

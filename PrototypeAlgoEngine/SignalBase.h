@@ -5,6 +5,9 @@
 
 #include <string>
 
+namespace algolab
+{
+
 class SignalBase : public PolyMorphic, public Serializable
 {
 public:
@@ -31,3 +34,4 @@ private:
     std::string _name;
 };
 
+}

@@ -5,6 +5,8 @@
 #include <utility>
 #include <thread>
 
+using namespace algolab;
+
 AlgoSequencer::AlgoSequencer()
     : num_cpu_cores(std::thread::hardware_concurrency())
 {
@@ -61,8 +63,14 @@ std::string AlgoSequencer::getRunSequence() const
     return result;
 }
 
+//#include <future>
+
 // NEXT STEPS:
 // - set up live threads corresponding to the algorithmic modules
 // - set up threads with waits and notifications with dependencies as per the module network
 // - test thread execution sequence
 // - examine the potential issue of cyclic dependencies in more detail
+//std::promise<int> p;
+//std::future<int> x = p.get_future();
+//std::shared_future<int> sf(std::move(x));
+//std::shared_future<int> sf2(sf);

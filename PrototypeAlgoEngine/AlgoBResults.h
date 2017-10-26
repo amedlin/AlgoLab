@@ -1,7 +1,7 @@
 #pragma once
 #include "Signal.h"
 
-class AlgoBResults : public Signal<int, int>
+class AlgoBResults : public algolab::Signal<int, int>
 {
 public:
     AlgoBResults();

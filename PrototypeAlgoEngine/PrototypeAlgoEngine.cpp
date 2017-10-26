@@ -13,6 +13,8 @@
 
 int main()
 {
+    using namespace algolab;
+
     AlgoFramework framework;
 
     std::shared_ptr<AlgoModule> algo_A(AlgoA::create("Algo_A"));
@@ -29,10 +31,10 @@ int main()
     result = AlgoModule::setModuleDependency(algo_C, algo_A_2);
 
     // Experiment: handle cyclic dependency
-    result = AlgoModule::setModuleDependency(algo_A_2, algo_A);
+//    result = AlgoModule::setModuleDependency(algo_A_2, algo_A);
 
     // Experiment: add nasty cyclic dependency  not involving the root node
-    result = AlgoModule::setModuleDependency(algo_A_2, algo_B);
+//    result = AlgoModule::setModuleDependency(algo_A_2, algo_B);
 
     framework.addAlgoModule(algo_A);
     framework.addAlgoModule(algo_C);
@@ -42,6 +44,9 @@ int main()
 
     // Display the sequence in which these algos will be run according to the dependencies.
     framework.displaySequence();
+
+    // Prepare framework for execution
+    framework.prepare();
 
     return 0;
 }

@@ -1,5 +1,8 @@
 #pragma once
 
+namespace algolab
+{
+
 class Serializable
 {
 public:
@@ -15,3 +18,5 @@ public:
 private:
 
 };
+
+}

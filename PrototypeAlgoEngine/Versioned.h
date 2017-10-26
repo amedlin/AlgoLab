@@ -2,6 +2,9 @@
 
 #include <string>
 
+namespace algolab
+{
+
 class Versioned
 {
 public:
@@ -12,10 +15,12 @@ public:
     virtual std::string versionString() = 0;
 
 protected:
-    Versioned() 
+    Versioned()
     {
     }
 
 private:
 
 };
+
+}

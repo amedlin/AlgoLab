@@ -2,6 +2,8 @@
 
 #include "ResultCollector.h"
 
+using namespace algolab;
+
 ResultCollector::ResultCollector()
 {
 }

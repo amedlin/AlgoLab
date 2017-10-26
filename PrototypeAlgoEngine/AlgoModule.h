@@ -7,6 +7,9 @@
 
 #include <list>
 
+namespace algolab
+{
+
 // Heap only object
 class AlgoModule : public Serializable, public AlgoSettingsFactory, public SignalFactory
 {
@@ -38,12 +41,18 @@ public:
         return !_precedents.empty();
     }
 
+    // Query this AlgoModule to find out how many concurrent threads it will run internally.
+    virtual size_t getConcurrency() const
+    {
+        return 1;
+    }
+
     static bool setModuleDependency(std::shared_ptr<AlgoModule> precedent, std::shared_ptr<AlgoModule> dependent);
 
-    AlgoModule(const AlgoModule &) = delete; 
-    AlgoModule & operator=(const AlgoModule &) = delete; 
-    AlgoModule(AlgoModule &&) = delete; 
-    AlgoModule & operator=(AlgoModule &&) = delete; 
+    AlgoModule(const AlgoModule &) = delete;
+    AlgoModule & operator=(const AlgoModule &) = delete;
+    AlgoModule(AlgoModule &&) = delete;
+    AlgoModule & operator=(AlgoModule &&) = delete;
 
 protected:
     AlgoModule(const std::string& name);
@@ -70,3 +79,4 @@ private:
     int _network_visit_count = { 0 };
 };
 
+}

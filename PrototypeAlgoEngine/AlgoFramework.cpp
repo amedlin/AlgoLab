@@ -4,6 +4,8 @@
 
 #include <iostream>
 
+using namespace algolab;
+
 AlgoFramework::AlgoFramework()
 {
 }
@@ -26,5 +28,10 @@ std::string AlgoFramework::versionString()
 void AlgoFramework::displaySequence()
 {
     std::cout << _algo_sequencer.getRunSequence() << std::endl;
+}
+
+bool AlgoFramework::prepare()
+{
+    return false;
 }
 

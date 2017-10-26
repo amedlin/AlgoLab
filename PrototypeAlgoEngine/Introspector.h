@@ -1,5 +1,8 @@
 #pragma once
 
+namespace algolab
+{
+
 class Introspector
 {
 protected:
@@ -14,3 +17,4 @@ private:
 
 };
 
+}

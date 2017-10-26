@@ -4,3 +4,5 @@
 
 #include <string>
 
+using namespace algolab;
+

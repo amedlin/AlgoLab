@@ -2,6 +2,8 @@
 
 #include "SettingsManager.h"
 
+using namespace algolab;
+
 SettingsManager::SettingsManager()
 {
 }

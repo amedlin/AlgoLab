@@ -2,7 +2,7 @@
 
 #include "AlgoSettings.h"
 
-class AlgoCSettings : public AlgoSettings
+class AlgoCSettings : public algolab::AlgoSettings
 {
 public:
     AlgoCSettings();

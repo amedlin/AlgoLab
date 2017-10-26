@@ -1,5 +1,7 @@
 #pragma once
 
+// Call this "AlgoLab" --> namespace algolab
+
 #include "serializable.h"
 #include "Versioned.h"
 #include "SettingsManager.h"
@@ -8,6 +10,9 @@
 #include "ResultCollector.h"
 
 #include <memory>
+
+namespace algolab
+{
 
 class AlgoFramework : public Serializable, public Versioned
 {
@@ -22,9 +27,12 @@ public:
 
     void displaySequence();
 
+    bool prepare();
+
 private:
     SettingsManager _settings_mgr;
     AlgoSequencer _algo_sequencer;
     ResultCollector _result_collector;
 };
 
+}

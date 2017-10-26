@@ -7,7 +7,7 @@ enum class AlgoASignals
     SIGNAL_1
 };
  
-class AlgoAResults : public Signal<AlgoASignals, float>
+class AlgoAResults : public algolab::Signal<AlgoASignals, float>
 {
 public:
     AlgoAResults();

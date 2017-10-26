@@ -8,7 +8,7 @@ enum class AlgoCSignal
     SIGNAL_2
 };
 
-class AlgoCResults : public Signal<AlgoCSignal, float>
+class AlgoCResults : public algolab::Signal<AlgoCSignal, float>
 {
 public:
     AlgoCResults();

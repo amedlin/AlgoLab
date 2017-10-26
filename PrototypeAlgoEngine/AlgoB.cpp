@@ -3,7 +3,7 @@
 #include "AlgoBSettings.h"
 #include "AlgoBResults.h"
 
-AlgoB::AlgoB(const std::string& algo_name) : AlgoModule(algo_name)
+AlgoB::AlgoB(const std::string& algo_name) : algolab::AlgoModule(algo_name)
 {
 }
 
@@ -11,22 +11,22 @@ AlgoB::~AlgoB()
 {
 }
 
-std::unique_ptr<AlgoModule> AlgoB::create(const std::string& algo_name)
+std::unique_ptr<algolab::AlgoModule> AlgoB::create(const std::string& algo_name)
 {
     return std::unique_ptr<AlgoB>(new AlgoB(algo_name));
 }
 
-std::shared_ptr<AlgoSettings> AlgoB::createAlgoSettings()
+std::shared_ptr<algolab::AlgoSettings> AlgoB::createAlgoSettings()
 {
-    return std::shared_ptr<AlgoSettings>(new AlgoBSettings);
+    return std::shared_ptr<algolab::AlgoSettings>(new AlgoBSettings);
 }
 
-std::shared_ptr<SignalBase> AlgoB::createSignal()
+std::shared_ptr<algolab::SignalBase> AlgoB::createSignal()
 {
-    return std::shared_ptr<SignalBase>(new AlgoBResults);
+    return std::shared_ptr<algolab::SignalBase>(new AlgoBResults);
 }
 
-void AlgoB::setSettings(const AlgoSettings& base)
+void AlgoB::setSettings(const algolab::AlgoSettings& base)
 {
     const AlgoBSettings& settings = base.asRefType<AlgoBSettings>();
 }

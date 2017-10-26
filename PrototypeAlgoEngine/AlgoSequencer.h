@@ -7,6 +7,8 @@
 #include <memory>
 #include <map>
 
+namespace algolab
+{
 
 class AlgoSequencer : public Serializable
 {
@@ -26,3 +28,5 @@ private:
 
     const unsigned int num_cpu_cores;
 };
+
+}

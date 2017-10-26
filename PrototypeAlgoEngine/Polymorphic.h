@@ -2,6 +2,9 @@
 
 #include <cassert>
 
+namespace algolab
+{
+
 class PolyMorphic
 {
 public:
@@ -15,7 +18,7 @@ public:
         assert(x != nullptr);
         return x;
 #endif
-    }
+}
 
     template <class T>
     const T* asPtrType() const
@@ -33,7 +36,7 @@ public:
         assert(x != nullptr);
         return *x;
 #endif
-    }
+}
 
     template <class T>
     const T& asRefType() const
@@ -48,7 +51,9 @@ public:
     }
 
 protected:
-    PolyMorphic(){}
-    virtual ~PolyMorphic(){}
+    PolyMorphic() {}
+    virtual ~PolyMorphic() {}
 
 };
+
+}
