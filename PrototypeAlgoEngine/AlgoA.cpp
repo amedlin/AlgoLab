@@ -19,7 +19,7 @@ std::unique_ptr<algolab::AlgoModule> AlgoA::create(const std::string& algo_name)
 
 std::shared_ptr<algolab::AlgoSettings> AlgoA::createAlgoSettings()
 {
-    return std::shared_ptr<algolab::AlgoSettings>(new AlgoASettings);
+    return std::shared_ptr<AlgoASettings>(new AlgoASettings);
 }
 
 std::shared_ptr<algolab::SignalBase> AlgoA::createSignal()
@@ -32,3 +32,4 @@ void AlgoA::setSettings(const algolab::AlgoSettings& base)
     const AlgoASettings& settings = algolab::assert_cast<const AlgoASettings>(base);
     _current_settings = settings;
 }
+

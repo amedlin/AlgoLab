@@ -15,6 +15,7 @@ public:
     virtual std::shared_ptr<algolab::AlgoSettings> createAlgoSettings() override;
     virtual std::shared_ptr<algolab::SignalBase> createSignal() override;
     virtual void setSettings(const algolab::AlgoSettings&) override;
+    //virtual bool run(std::shared_ptr<const algolab::SignalBase> input_signal, std::shared_ptr<algolab::SignalBase> result);
 
 protected:
     AlgoA(const std::string& algo_name);

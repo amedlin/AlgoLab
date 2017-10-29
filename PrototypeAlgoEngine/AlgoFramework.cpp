@@ -42,3 +42,8 @@ bool algolab::AlgoFramework::ready() const
     return true;
 }
 
+void algolab::AlgoFramework::run()
+{
+    _algo_sequencer.run(_result_collector);
+}
+

@@ -121,3 +121,25 @@ bool AlgoModule::reevaluatePrecedence()
     return true;
 }
 
+bool AlgoModule::exec(std::shared_future<std::shared_ptr<algolab::SignalBase> > input, std::promise<std::shared_ptr<algolab::SignalBase> > output)
+{
+    std::shared_ptr<algolab::SignalBase> input_signal;
+    if (input.valid())
+    {
+        input_signal = input.get();
+    }
+
+    std::shared_ptr<algolab::SignalBase> result = createSignal();
+
+    bool success = run(input_signal, result);
+
+    output.set_value(result);
+
+    return success;
+}
+
+bool algolab::AlgoModule::run(std::shared_ptr<const algolab::SignalBase> input_signal, std::shared_ptr<algolab::SignalBase> result)
+{
+    std::cout << "Running " << this->name() << std::endl;
+    return true;
+}

@@ -19,15 +19,16 @@ std::unique_ptr<algolab::AlgoModule> AlgoB::create(const std::string& algo_name)
 
 std::shared_ptr<algolab::AlgoSettings> AlgoB::createAlgoSettings()
 {
-    return std::shared_ptr<algolab::AlgoSettings>(new AlgoBSettings);
+    return std::shared_ptr<AlgoBSettings>(new AlgoBSettings);
 }
 
 std::shared_ptr<algolab::SignalBase> AlgoB::createSignal()
 {
-    return std::shared_ptr<algolab::SignalBase>(new AlgoBResults);
+    return std::shared_ptr<AlgoBResults>(new AlgoBResults);
 }
 
 void AlgoB::setSettings(const algolab::AlgoSettings& base)
 {
     const AlgoBSettings& settings = algolab::assert_cast<const AlgoBSettings>(base);
+    _current_settings = settings;
 }

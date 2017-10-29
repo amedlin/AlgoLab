@@ -6,6 +6,8 @@
 #include "AlgoSettings.h"
 
 #include <list>
+#include <future>
+#include <memory>
 
 namespace algolab
 {
@@ -19,6 +21,9 @@ public:
     virtual ~AlgoModule();
 
     virtual void setSettings(const AlgoSettings&) = 0;
+
+    bool exec(std::shared_future<std::shared_ptr<SignalBase> > input, std::promise<std::shared_ptr<SignalBase> > output);
+
     Precedence precedence() const
     {
         return _precedence;
@@ -56,6 +61,8 @@ public:
 
 protected:
     AlgoModule(const std::string& name);
+
+    virtual bool run(std::shared_ptr<const algolab::SignalBase> input_signal, std::shared_ptr<algolab::SignalBase> result);
 
 private:
 

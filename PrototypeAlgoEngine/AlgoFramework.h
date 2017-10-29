@@ -30,6 +30,8 @@ public:
     bool prepare();
     bool ready() const;
 
+    void run();
+
 private:
     SettingsManager _settings_mgr;
     AlgoSequencer _algo_sequencer;

@@ -1,6 +1,7 @@
 #pragma once
 
 #include "AlgoModule.h"
+#include "AlgoCSettings.h"
 
 class AlgoC : public algolab::AlgoModule
 {
@@ -19,4 +20,5 @@ protected:
 
 private:
 
+    AlgoCSettings _current_settings;
 };

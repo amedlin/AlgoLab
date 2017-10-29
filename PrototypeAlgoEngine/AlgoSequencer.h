@@ -10,6 +10,8 @@
 namespace algolab
 {
 
+class ResultCollector;
+
 class AlgoSequencer : public Serializable
 {
 public:
@@ -22,6 +24,8 @@ public:
     void add(std::shared_ptr<AlgoModule> algo_module);
 
     std::string getRunSequence() const;
+
+    void run(ResultCollector& collector);
 
 private:
     Sequence _sequence;
