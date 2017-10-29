@@ -2,6 +2,7 @@
 #include "AlgoB.h"
 #include "AlgoBSettings.h"
 #include "AlgoBResults.h"
+#include "cast.h"
 
 AlgoB::AlgoB(const std::string& algo_name) : algolab::AlgoModule(algo_name)
 {
@@ -28,5 +29,5 @@ std::shared_ptr<algolab::SignalBase> AlgoB::createSignal()
 
 void AlgoB::setSettings(const algolab::AlgoSettings& base)
 {
-    const AlgoBSettings& settings = base.asRefType<AlgoBSettings>();
+    const AlgoBSettings& settings = algolab::assert_cast<const AlgoBSettings>(base);
 }

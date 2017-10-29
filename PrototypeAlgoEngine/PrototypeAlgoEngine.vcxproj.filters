@@ -44,9 +44,6 @@
     <ClInclude Include="SignalBase.h">
       <Filter>Source Files\framework</Filter>
     </ClInclude>
-    <ClInclude Include="Introspector.h">
-      <Filter>Source Files\framework</Filter>
-    </ClInclude>
     <ClInclude Include="Versioned.h">
       <Filter>Source Files\framework</Filter>
     </ClInclude>
@@ -77,9 +74,6 @@
     <ClInclude Include="AlgoAResults.h">
       <Filter>Source Files\application</Filter>
     </ClInclude>
-    <ClInclude Include="Polymorphic.h">
-      <Filter>Source Files\framework</Filter>
-    </ClInclude>
     <ClInclude Include="AlgoBSettings.h">
       <Filter>Source Files\application</Filter>
     </ClInclude>
@@ -94,6 +88,9 @@
     </ClInclude>
     <ClInclude Include="AlgoCSettings.h">
       <Filter>Source Files\application</Filter>
+    </ClInclude>
+    <ClInclude Include="cast.h">
+      <Filter>Source Files\framework</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

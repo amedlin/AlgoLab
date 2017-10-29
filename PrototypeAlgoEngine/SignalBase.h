@@ -1,14 +1,13 @@
 #pragma once
 
 #include "serializable.h"
-#include "Polymorphic.h"
 
 #include <string>
 
 namespace algolab
 {
 
-class SignalBase : public PolyMorphic, public Serializable
+class SignalBase : public Serializable
 {
 public:
     virtual ~SignalBase()

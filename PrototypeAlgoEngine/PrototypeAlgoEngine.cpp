@@ -48,6 +48,11 @@ int main()
     // Prepare framework for execution
     framework.prepare();
 
+    if (!framework.ready())
+    {
+        return 1;
+    }
+
     return 0;
 }
 

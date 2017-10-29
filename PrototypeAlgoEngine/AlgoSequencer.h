@@ -14,7 +14,7 @@ class AlgoSequencer : public Serializable
 {
 public:
     AlgoSequencer();
-    ~AlgoSequencer();
+    virtual ~AlgoSequencer();
 
     using ModuleSet = std::unordered_set<std::shared_ptr<AlgoModule> >;
     using Sequence = std::map<AlgoModule::Precedence, ModuleSet>;

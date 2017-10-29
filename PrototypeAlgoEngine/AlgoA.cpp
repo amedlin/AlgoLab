@@ -2,6 +2,7 @@
 #include "AlgoA.h"
 #include "AlgoASettings.h"
 #include "AlgoAResults.h"
+#include "cast.h"
 
 AlgoA::AlgoA(const std::string& algo_name) : algolab::AlgoModule(algo_name)
 {
@@ -28,6 +29,6 @@ std::shared_ptr<algolab::SignalBase> AlgoA::createSignal()
 
 void AlgoA::setSettings(const algolab::AlgoSettings& base)
 {
-    const AlgoASettings& settings = base.asRefType<AlgoASettings>();
+    const AlgoASettings& settings = algolab::assert_cast<const AlgoASettings>(base);
     _current_settings = settings;
 }

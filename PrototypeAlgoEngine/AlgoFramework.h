@@ -28,6 +28,7 @@ public:
     void displaySequence();
 
     bool prepare();
+    bool ready() const;
 
 private:
     SettingsManager _settings_mgr;

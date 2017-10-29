@@ -32,6 +32,13 @@ void AlgoFramework::displaySequence()
 
 bool AlgoFramework::prepare()
 {
+    // Set up the initial threads in a wait state, ready to run.
+
     return false;
+}
+
+bool algolab::AlgoFramework::ready() const
+{
+    return true;
 }
 
