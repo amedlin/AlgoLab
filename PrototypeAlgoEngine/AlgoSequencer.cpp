@@ -3,6 +3,7 @@
 #include "AlgoSequencer.h"
 #include "SignalBase.h"
 
+#include <vector>
 #include <utility>
 #include <thread>
 #include <future>

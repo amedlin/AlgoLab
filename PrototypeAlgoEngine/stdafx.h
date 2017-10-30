@@ -8,7 +8,12 @@
 #include "targetver.h"
 
 #include <stdio.h>
+#ifdef __APPLE__
+#include <wchar.h>
+#else
+// assumed windows
 #include <tchar.h>
+#endif
 
 
 
