@@ -2,6 +2,7 @@
 
 #include "serializable.h"
 #include "AlgoModule.h"
+#include "future_promise.h"
 
 #include <unordered_set>
 #include <memory>
@@ -40,7 +41,7 @@ private:
     const unsigned int _num_cpu_cores;
 
     // Event (call set_value()) used to kick off the run of sequenced AlgoModules
-    std::promise<std::shared_ptr<algolab::SignalBase> > _kickoff_thread_0;
+    SignalPromise _kickoff_thread_0;
     
 };
 

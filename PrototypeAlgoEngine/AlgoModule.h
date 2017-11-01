@@ -4,6 +4,7 @@
 #include "AlgoSettingsFactory.h"
 #include "SignalFactory.h"
 #include "AlgoSettings.h"
+#include "future_promise.h"
 
 #include <list>
 #include <future>
@@ -53,10 +54,13 @@ public:
     }
 
     // Provide futures to AlgoModules that depend on me.
-    std::shared_future<std::shared_ptr<algolab::SignalBase> > provideFutureWaitObject();
+    SignalReady provideFutureWaitObject();
 
     // Receive futures from AlgoModules that I depend on. Return false if something goes wrong.
     bool receiveFutureWaitObjects();
+    
+    // Receive a specific provided future wait object
+    void receiveFutureWaitObject(SignalReady fut);
 
     static bool setModuleDependency(std::shared_ptr<AlgoModule> precedent, std::shared_ptr<AlgoModule> dependent);
 
@@ -84,12 +88,12 @@ private:
 
     //! Promise used to provide shared_futures to _subsequents, who wait for this promise's
     //! value to be set.
-    std::promise<std::shared_ptr<algolab::SignalBase> > _my_result;
+    SignalPromise _my_result;
     //! Set this to false as soon as _my_result has had its value set
     bool _promise_pending = {true};
 
     //! Set of futures this AlgoModule has to wait for before executing.
-    std::list<std::shared_future<std::shared_ptr<algolab::SignalBase> > > _blocking_futures;
+    std::list<SignalReady> _blocking_futures;
 
     Precedence _precedence = { 0 };
 

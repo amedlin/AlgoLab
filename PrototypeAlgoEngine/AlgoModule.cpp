@@ -122,7 +122,7 @@ bool AlgoModule::reevaluatePrecedence()
     return true;
 }
 
-std::shared_future<std::shared_ptr<algolab::SignalBase> > AlgoModule::provideFutureWaitObject()
+SignalReady AlgoModule::provideFutureWaitObject()
 {
     assert(_promise_pending);
     return _my_result.get_future();
@@ -146,7 +146,13 @@ bool AlgoModule::receiveFutureWaitObjects()
     return true;
 }
 
-bool AlgoModule::exec(std::shared_future<std::shared_ptr<algolab::SignalBase> > input, std::promise<std::shared_ptr<algolab::SignalBase> > output)
+void AlgoModule::receiveFutureWaitObject(SignalReady fut)
+{
+    _blocking_futures.push_front(fut);
+}
+
+bool AlgoModule::exec(SignalReady input, 
+    SignalPromise output)
 {
     std::shared_ptr<algolab::SignalBase> input_signal;
     if (input.valid())
@@ -163,7 +169,8 @@ bool AlgoModule::exec(std::shared_future<std::shared_ptr<algolab::SignalBase> > 
     return success;
 }
 
-bool algolab::AlgoModule::run(std::shared_ptr<const algolab::SignalBase> input_signal, std::shared_ptr<algolab::SignalBase> result)
+bool algolab::AlgoModule::run(std::shared_ptr<const algolab::SignalBase> input_signal, 
+    std::shared_ptr<algolab::SignalBase> result)
 {
     std::cout << "Running " << this->name() << std::endl;
     return true;

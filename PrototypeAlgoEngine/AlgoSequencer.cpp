@@ -77,12 +77,12 @@ bool AlgoSequencer::prepare()
 
 void AlgoSequencer::run(ResultCollector& collector)
 {
-    std::promise<std::shared_ptr<algolab::SignalBase> > kickoff_thread_0;
+    SignalPromise kickoff_thread_0;
     std::shared_ptr<algolab::SignalBase> null_signal;
 
     std::vector<std::thread> threads;
 
-    std::shared_future<std::shared_ptr<algolab::SignalBase>> fut = kickoff_thread_0.get_future();
+    SignalReady fut = kickoff_thread_0.get_future();
     for (Sequence::value_type& set: _sequence)
     {
         for (std::shared_ptr<AlgoModule> algo: set.second)
@@ -92,8 +92,8 @@ void AlgoSequencer::run(ResultCollector& collector)
                 continue;
             }
             // Create thread for each and execute
-            std::promise<std::shared_ptr<algolab::SignalBase> > result_signal;
-            std::shared_future<std::shared_ptr<algolab::SignalBase>> next_fut = result_signal.get_future();
+            SignalPromise result_signal;
+            SignalReady next_fut = result_signal.get_future();
             std::thread thr(&AlgoModule::exec, algo, fut, std::move(result_signal));
             fut = next_fut;
             threads.push_back(std::move(thr));
