@@ -23,14 +23,25 @@ public:
 
     void add(std::shared_ptr<AlgoModule> algo_module);
 
+    unsigned int concurrencyCount() const
+    {
+        return _num_cpu_cores;
+    }
+
     std::string getRunSequence() const;
+
+    bool prepare();
 
     void run(ResultCollector& collector);
 
 private:
     Sequence _sequence;
 
-    const unsigned int num_cpu_cores;
+    const unsigned int _num_cpu_cores;
+
+    // Event (call set_value()) used to kick off the run of sequenced AlgoModules
+    std::promise<std::shared_ptr<algolab::SignalBase> > _kickoff_thread_0;
+    
 };
 
 }

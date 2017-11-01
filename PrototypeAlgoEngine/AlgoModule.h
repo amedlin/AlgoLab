@@ -52,6 +52,12 @@ public:
         return 1;
     }
 
+    // Provide futures to AlgoModules that depend on me.
+    std::shared_future<std::shared_ptr<algolab::SignalBase> > provideFutureWaitObject();
+
+    // Receive futures from AlgoModules that I depend on. Return false if something goes wrong.
+    bool receiveFutureWaitObjects();
+
     static bool setModuleDependency(std::shared_ptr<AlgoModule> precedent, std::shared_ptr<AlgoModule> dependent);
 
     AlgoModule(const AlgoModule &) = delete;
@@ -76,6 +82,15 @@ private:
     //! Algorithms that must execute after this one.
     std::list<std::weak_ptr<AlgoModule> > _subsequents;
 
+    //! Promise used to provide shared_futures to _subsequents, who wait for this promise's
+    //! value to be set.
+    std::promise<std::shared_ptr<algolab::SignalBase> > _my_result;
+    //! Set this to false as soon as _my_result has had its value set
+    bool _promise_pending = {true};
+
+    //! Set of futures this AlgoModule has to wait for before executing.
+    std::list<std::shared_future<std::shared_ptr<algolab::SignalBase> > > _blocking_futures;
+
     Precedence _precedence = { 0 };
 
     // The "root" node in the network is the unique node that must be used to trigger execution
@@ -84,6 +99,7 @@ private:
     bool _is_root;
 
     int _network_visit_count = { 0 };
+
 };
 
 }

@@ -5,6 +5,7 @@
 #include <algorithm>
 #include <stdexcept>
 #include <iostream>
+#include <cassert>
 
 using namespace algolab;
 
@@ -118,6 +119,30 @@ bool AlgoModule::reevaluatePrecedence()
         }
     }
     --recursion_level;
+    return true;
+}
+
+std::shared_future<std::shared_ptr<algolab::SignalBase> > AlgoModule::provideFutureWaitObject()
+{
+    assert(_promise_pending);
+    return _my_result.get_future();
+}
+
+bool AlgoModule::receiveFutureWaitObjects()
+{
+    // Loop over _precedents and queue up a future wait object from each
+    for (auto& algo_ptr: _precedents)
+    {
+        std::shared_ptr<AlgoModule> algo = algo_ptr.lock();
+        if (algo)
+        {
+            _blocking_futures.push_back(algo->provideFutureWaitObject());
+        }
+        else
+        {
+            return false;
+        }
+    }
     return true;
 }
 

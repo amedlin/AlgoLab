@@ -34,7 +34,7 @@ bool AlgoFramework::prepare()
 {
     // Set up the initial threads in a wait state, ready to run.
 
-    return false;
+    return _algo_sequencer.prepare();
 }
 
 bool algolab::AlgoFramework::ready() const

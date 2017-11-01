@@ -12,7 +12,7 @@
 using namespace algolab;
 
 AlgoSequencer::AlgoSequencer()
-    : num_cpu_cores(std::thread::hardware_concurrency())
+    : _num_cpu_cores(std::thread::hardware_concurrency())
 {
 }
 
@@ -67,6 +67,14 @@ std::string AlgoSequencer::getRunSequence() const
     return result;
 }
 
+bool AlgoSequencer::prepare()
+{
+    // Process the dependency tree and set up promises and futures.
+    // Only call run() if this function returns true.
+
+    return true;
+}
+
 void AlgoSequencer::run(ResultCollector& collector)
 {
     std::promise<std::shared_ptr<algolab::SignalBase> > kickoff_thread_0;
@@ -117,7 +125,9 @@ void AlgoSequencer::run(ResultCollector& collector)
 // 
 // Principles:
 // - Each module provides ONE promise. A promise can supply multiple shared_futures.
+//   => The promise must be a member variable of the AlgoModule.
 // - Each module must wait on one or more futures to provide data before they can execute.
+//   => modules should get their shared_futures from their _precedent's promises.
 // 
 // It remains to be done to find an algorithm to set up this network of promises and futures,
 // based on the AlgoModule::Precedence values and/or the data structure in AlgoSequencer and/or
