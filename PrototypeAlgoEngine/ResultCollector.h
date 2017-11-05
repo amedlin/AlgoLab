@@ -2,8 +2,9 @@
 
 #include "serializable.h"
 #include <memory>
-#include <set>
+#include <map>
 #include <mutex>
+#include <string>
 
 namespace algolab
 {
@@ -16,10 +17,10 @@ public:
     ResultCollector();
     virtual ~ResultCollector();
 
-    void collect(std::shared_ptr<SignalBase> signal);
+    void collect(const std::string& signal_name, std::shared_ptr<const SignalBase> signal);
 
 private:
-    std::set<std::shared_ptr<SignalBase> > _signals; // Change to map, keyed by stringified concrete class name
+    std::map<std::string, std::shared_ptr<const SignalBase> > _signals; // Change to map, keyed by stringified concrete class name
 
     std::mutex _mutex;
 };

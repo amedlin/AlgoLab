@@ -12,8 +12,8 @@ ResultCollector::~ResultCollector()
 {
 }
 
-void ResultCollector::collect(std::shared_ptr<SignalBase> signal)
+void ResultCollector::collect(const std::string& signal_name, std::shared_ptr<const SignalBase> signal)
 {
     std::lock_guard<std::mutex> lock(_mutex);
-    _signals.insert(signal);
+    _signals[signal_name] = signal;
 }

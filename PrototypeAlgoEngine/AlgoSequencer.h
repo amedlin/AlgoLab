@@ -7,6 +7,8 @@
 #include <unordered_set>
 #include <memory>
 #include <map>
+#include <vector>
+#include <thread>
 
 namespace algolab
 {
@@ -31,9 +33,9 @@ public:
 
     std::string getRunSequence() const;
 
-    bool prepare();
+    bool prepare(ResultCollector& collector);
 
-    void run(ResultCollector& collector);
+    void run();
 
 private:
     Sequence _sequence;
@@ -43,6 +45,7 @@ private:
     // Event (call set_value()) used to kick off the run of sequenced AlgoModules
     SignalPromise _kickoff_thread_0;
     
+    std::vector<std::thread> _threads;
 };
 
 }

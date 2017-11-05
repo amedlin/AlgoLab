@@ -52,6 +52,7 @@ int main()
     {
         return 1;
     }
+    framework.run();
 
     return 0;
 }

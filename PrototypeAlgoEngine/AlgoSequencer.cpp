@@ -67,22 +67,12 @@ std::string AlgoSequencer::getRunSequence() const
     return result;
 }
 
-bool AlgoSequencer::prepare()
+bool AlgoSequencer::prepare(ResultCollector& collector)
 {
     // Process the dependency tree and set up promises and futures.
     // Only call run() if this function returns true.
-
-    return true;
-}
-
-void AlgoSequencer::run(ResultCollector& collector)
-{
-    SignalPromise kickoff_thread_0;
-    std::shared_ptr<algolab::SignalBase> null_signal;
-
-    std::vector<std::thread> threads;
-
-    SignalReady fut = kickoff_thread_0.get_future();
+    
+    bool initiating_threads = true;
     for (Sequence::value_type& set: _sequence)
     {
         for (std::shared_ptr<AlgoModule> algo: set.second)
@@ -91,18 +81,32 @@ void AlgoSequencer::run(ResultCollector& collector)
             {
                 continue;
             }
-            // Create thread for each and execute
-            SignalPromise result_signal;
-            SignalReady next_fut = result_signal.get_future();
-            std::thread thr(&AlgoModule::exec, algo, fut, std::move(result_signal));
-            fut = next_fut;
-            threads.push_back(std::move(thr));
+            if (initiating_threads)
+            {
+                algo->receiveFutureWaitObject(_kickoff_thread_0.get_future());
+            }
+            else
+            {
+                algo->receiveFutureWaitObjects();
+            }
+            // Create thread for each and execute. Initially, all will block
+            // waiting for kickoff signal.
+            std::thread thr(&AlgoModule::exec, algo, std::ref(collector));
+            _threads.push_back(std::move(thr));            
         }
+        initiating_threads = false;
     }
 
-    kickoff_thread_0.set_value(null_signal);
+    return true;
+}
 
-    for (auto& th : threads) th.join();
+void AlgoSequencer::run()
+{
+    std::shared_ptr<algolab::SignalBase> null_signal;
+    _kickoff_thread_0.set_value(null_signal);
+
+    for (auto& th : _threads) th.join();
+    _threads.clear();
 }
 
 // TODO: 

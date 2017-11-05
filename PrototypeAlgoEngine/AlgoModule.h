@@ -12,6 +12,7 @@
 
 namespace algolab
 {
+class ResultCollector;
 
 // Heap only object
 class AlgoModule : public Serializable, public AlgoSettingsFactory, public SignalFactory
@@ -23,7 +24,7 @@ public:
 
     virtual void setSettings(const AlgoSettings&) = 0;
 
-    bool exec(std::shared_future<std::shared_ptr<SignalBase> > input, std::promise<std::shared_ptr<SignalBase> > output);
+    bool exec(ResultCollector& collector);
 
     Precedence precedence() const
     {
@@ -65,14 +66,14 @@ public:
     static bool setModuleDependency(std::shared_ptr<AlgoModule> precedent, std::shared_ptr<AlgoModule> dependent);
 
     AlgoModule(const AlgoModule &) = delete;
-    AlgoModule & operator=(const AlgoModule &) = delete;
+    AlgoModule& operator=(const AlgoModule &) = delete;
     AlgoModule(AlgoModule &&) = delete;
-    AlgoModule & operator=(AlgoModule &&) = delete;
+    AlgoModule& operator=(AlgoModule &&) = delete;
 
 protected:
     AlgoModule(const std::string& name);
 
-    virtual bool run(std::shared_ptr<const algolab::SignalBase> input_signal, std::shared_ptr<algolab::SignalBase> result);
+    virtual bool run(const ResultCollector& collector, std::shared_ptr<algolab::SignalBase> result);
 
 private:
 
@@ -89,6 +90,7 @@ private:
     //! Promise used to provide shared_futures to _subsequents, who wait for this promise's
     //! value to be set.
     SignalPromise _my_result;
+    SignalReady _master_future;
     //! Set this to false as soon as _my_result has had its value set
     bool _promise_pending = {true};
 
