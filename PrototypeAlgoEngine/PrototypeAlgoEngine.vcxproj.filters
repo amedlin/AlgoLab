@@ -92,6 +92,9 @@
     <ClInclude Include="cast.h">
       <Filter>Source Files\framework</Filter>
     </ClInclude>
+    <ClInclude Include="future_promise.h">
+      <Filter>Source Files\framework</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -148,5 +151,10 @@
     <ClCompile Include="AlgoCSettings.cpp">
       <Filter>Source Files\application</Filter>
     </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Makefile">
+      <Filter>Source Files\framework</Filter>
+    </None>
   </ItemGroup>
 </Project>

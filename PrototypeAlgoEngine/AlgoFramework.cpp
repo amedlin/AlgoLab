@@ -3,6 +3,7 @@
 #include "AlgoFramework.h"
 
 #include <iostream>
+#include <cassert>
 
 using namespace algolab;
 
@@ -44,6 +45,7 @@ bool algolab::AlgoFramework::ready() const
 
 void algolab::AlgoFramework::run()
 {
+    assert(_algo_sequencer.isPrepared());
     _algo_sequencer.run();
 }
 

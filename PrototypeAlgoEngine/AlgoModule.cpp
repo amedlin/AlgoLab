@@ -23,6 +23,7 @@ AlgoModule::~AlgoModule()
 {
 }
 
+
 bool AlgoModule::networkIsClosed()
 {
     if (_network_visit_count > 0)
@@ -45,6 +46,7 @@ bool AlgoModule::networkIsClosed()
         return closed;
     }
 }
+
 
 bool AlgoModule::setModuleDependency(std::shared_ptr<AlgoModule> precedent, std::shared_ptr<AlgoModule> dependent)
 {
@@ -74,6 +76,7 @@ bool AlgoModule::setModuleDependency(std::shared_ptr<AlgoModule> precedent, std:
     }
     return false;
 }
+
 
 bool AlgoModule::reevaluatePrecedence()
 {
@@ -126,6 +129,7 @@ bool AlgoModule::reevaluatePrecedence()
     return true;
 }
 
+
 SignalReady AlgoModule::provideFutureWaitObject()
 {
     assert(_promise_pending);
@@ -133,6 +137,7 @@ SignalReady AlgoModule::provideFutureWaitObject()
     // Copy master future and return it
     return _master_future;
 }
+
 
 bool AlgoModule::receiveFutureWaitObjects()
 {
@@ -152,10 +157,12 @@ bool AlgoModule::receiveFutureWaitObjects()
     return true;
 }
 
+
 void AlgoModule::receiveFutureWaitObject(SignalReady fut)
 {
     _blocking_futures.push_front(fut);
 }
+
 
 bool AlgoModule::exec(ResultCollector& collector)
 {
@@ -165,6 +172,14 @@ bool AlgoModule::exec(ResultCollector& collector)
         assert(b.valid());
         b.get();
     }
+
+    // ****************************************************************************************************************
+    // NB: This current design is conflicted, because the SignalReady signals provide the SignalBase result from
+    //     precedent algo module via the future get() function, yet it doesn't use it. Instead it is supposed to
+    //     get the precedent signal from the ResultCollector. It should be one way or the other, not both.
+    //     Access via ResultCollector could be a bottleneck due to contention for accessing ResultCollector, of
+    //     which there is only one.
+    // ****************************************************************************************************************
 
     // Create own result
     std::shared_ptr<algolab::SignalBase> result = createSignal();
@@ -181,6 +196,7 @@ bool AlgoModule::exec(ResultCollector& collector)
 
     return success;
 }
+
 
 bool algolab::AlgoModule::run(const ResultCollector& collector, std::shared_ptr<algolab::SignalBase> result)
 {
