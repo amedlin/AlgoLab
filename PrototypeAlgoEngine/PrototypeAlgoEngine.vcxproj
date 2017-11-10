@@ -88,7 +88,7 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>D:\SDKs\BOOST\boost_1_63_0</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>framework;D:\SDKs\BOOST\boost_1_63_0</AdditionalIncludeDirectories>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
@@ -103,7 +103,7 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>D:\SDKs\BOOST\boost_1_63_0</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>framework;D:\SDKs\BOOST\boost_1_63_0</AdditionalIncludeDirectories>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <OmitFramePointers>false</OmitFramePointers>
     </ClCompile>
@@ -121,7 +121,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>D:\SDKs\BOOST\boost_1_63_0</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>framework;D:\SDKs\BOOST\boost_1_63_0</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -139,7 +139,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>D:\SDKs\BOOST\boost_1_63_0</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>framework;D:\SDKs\BOOST\boost_1_63_0</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -152,50 +152,50 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="AlgoA.h" />
-    <ClInclude Include="AlgoAResults.h" />
-    <ClInclude Include="AlgoASettings.h" />
-    <ClInclude Include="AlgoB.h" />
-    <ClInclude Include="AlgoBResults.h" />
-    <ClInclude Include="AlgoBSettings.h" />
-    <ClInclude Include="AlgoC.h" />
-    <ClInclude Include="AlgoCResults.h" />
-    <ClInclude Include="AlgoCSettings.h" />
-    <ClInclude Include="AlgoFramework.h" />
-    <ClInclude Include="AlgoModule.h" />
-    <ClInclude Include="AlgoSequencer.h" />
-    <ClInclude Include="AlgoSettings.h" />
-    <ClInclude Include="AlgoSettingsFactory.h" />
-    <ClInclude Include="cast.h" />
-    <ClInclude Include="future_promise.h" />
-    <ClInclude Include="ResultCollector.h" />
-    <ClInclude Include="serializable.h" />
-    <ClInclude Include="SettingsManager.h" />
-    <ClInclude Include="Signal.h" />
-    <ClInclude Include="SignalBase.h" />
-    <ClInclude Include="SignalFactory.h" />
+    <ClInclude Include="example\AlgoA.h" />
+    <ClInclude Include="example\AlgoAResults.h" />
+    <ClInclude Include="example\AlgoASettings.h" />
+    <ClInclude Include="example\AlgoB.h" />
+    <ClInclude Include="example\AlgoBResults.h" />
+    <ClInclude Include="example\AlgoBSettings.h" />
+    <ClInclude Include="example\AlgoC.h" />
+    <ClInclude Include="example\AlgoCResults.h" />
+    <ClInclude Include="example\AlgoCSettings.h" />
+    <ClInclude Include="framework\AlgoFramework.h" />
+    <ClInclude Include="framework\AlgoModule.h" />
+    <ClInclude Include="framework\AlgoSequencer.h" />
+    <ClInclude Include="framework\AlgoSettings.h" />
+    <ClInclude Include="framework\AlgoSettingsFactory.h" />
+    <ClInclude Include="framework\cast.h" />
+    <ClInclude Include="framework\future_promise.h" />
+    <ClInclude Include="framework\ResultCollector.h" />
+    <ClInclude Include="framework\serializable.h" />
+    <ClInclude Include="framework\SettingsManager.h" />
+    <ClInclude Include="framework\Signal.h" />
+    <ClInclude Include="framework\SignalBase.h" />
+    <ClInclude Include="framework\SignalFactory.h" />
+    <ClInclude Include="framework\Versioned.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
-    <ClInclude Include="Versioned.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="AlgoA.cpp" />
-    <ClCompile Include="AlgoAResults.cpp" />
-    <ClCompile Include="AlgoASettings.cpp" />
-    <ClCompile Include="AlgoB.cpp" />
-    <ClCompile Include="AlgoBResults.cpp" />
-    <ClCompile Include="AlgoBSettings.cpp" />
-    <ClCompile Include="AlgoC.cpp" />
-    <ClCompile Include="AlgoCResults.cpp" />
-    <ClCompile Include="AlgoCSettings.cpp" />
-    <ClCompile Include="AlgoFramework.cpp" />
-    <ClCompile Include="AlgoModule.cpp" />
-    <ClCompile Include="AlgoSequencer.cpp" />
-    <ClCompile Include="AlgoSettings.cpp" />
-    <ClCompile Include="PrototypeAlgoEngine.cpp" />
-    <ClCompile Include="ResultCollector.cpp" />
-    <ClCompile Include="SettingsManager.cpp" />
-    <ClCompile Include="Signal.cpp" />
+    <ClCompile Include="example\AlgoA.cpp" />
+    <ClCompile Include="example\AlgoAResults.cpp" />
+    <ClCompile Include="example\AlgoASettings.cpp" />
+    <ClCompile Include="example\AlgoB.cpp" />
+    <ClCompile Include="example\AlgoBResults.cpp" />
+    <ClCompile Include="example\AlgoBSettings.cpp" />
+    <ClCompile Include="example\AlgoC.cpp" />
+    <ClCompile Include="example\AlgoCResults.cpp" />
+    <ClCompile Include="example\AlgoCSettings.cpp" />
+    <ClCompile Include="example\PrototypeAlgoEngine.cpp" />
+    <ClCompile Include="framework\AlgoFramework.cpp" />
+    <ClCompile Include="framework\AlgoModule.cpp" />
+    <ClCompile Include="framework\AlgoSequencer.cpp" />
+    <ClCompile Include="framework\AlgoSettings.cpp" />
+    <ClCompile Include="framework\ResultCollector.cpp" />
+    <ClCompile Include="framework\SettingsManager.cpp" />
+    <ClCompile Include="framework\Signal.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
