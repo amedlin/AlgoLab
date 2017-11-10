@@ -7,6 +7,6 @@
 
 namespace algolab
 {
-    using SignalPromise = std::promise<std::shared_ptr<algolab::SignalBase> >;
-    using SignalReady = std::shared_future<std::shared_ptr<algolab::SignalBase> >;
+    using SignalPromise = std::promise<void>;
+    using SignalReady = std::shared_future<void>;
 }

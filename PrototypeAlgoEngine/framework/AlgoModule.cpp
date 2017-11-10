@@ -21,6 +21,8 @@ AlgoModule::AlgoModule(const std::string& name)
 
 AlgoModule::~AlgoModule()
 {
+    // Not sure if this is needed?
+    _master_future.get();
 }
 
 
@@ -178,7 +180,9 @@ bool AlgoModule::exec(ResultCollector& collector)
     //     precedent algo module via the future get() function, yet it doesn't use it. Instead it is supposed to
     //     get the precedent signal from the ResultCollector. It should be one way or the other, not both.
     //     Access via ResultCollector could be a bottleneck due to contention for accessing ResultCollector, of
-    //     which there is only one.
+    //     which there is only one. However if this module wants to get a result from and indirect precedent, it can't
+    //     do it via the signals, it can only get it from the ResultCollector. This suggests the ResultCollector is
+    //     the most general purpose method to retrieve past results.
     // ****************************************************************************************************************
 
     // Create own result
@@ -188,10 +192,10 @@ bool AlgoModule::exec(ResultCollector& collector)
     bool success = run(collector, result);
 
     // Collect result
-    collector.collect(this->name(), result);
+    collector.collect(result->signalName(), result);
 
-    // Signal dependents that reslut is ready
-    _my_result.set_value(result);
+    // Signal dependents that result is ready
+    _my_result.set_value();
     _promise_pending = false;
 
     return success;

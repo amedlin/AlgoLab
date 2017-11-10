@@ -38,6 +38,9 @@ public:
     //! Run the composite algorithm
     void run();
 
+    //! Report the results that were collected.
+    void report();
+
 private:
     //! Central manager for algorithm settings
     SettingsManager _settings_mgr;

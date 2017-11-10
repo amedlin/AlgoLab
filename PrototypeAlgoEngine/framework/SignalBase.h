@@ -20,8 +20,12 @@ public:
     }
 
 protected:
-    SignalBase()
+    SignalBase(const std::string& name = "")
     {
+        if (!name.empty())
+        {
+            setSignalName(name);
+        }
     }
 
     void setSignalName(const std::string& name)

@@ -4,6 +4,7 @@
 
 AlgoAResults::AlgoAResults()
 {
+    setSignalName("AlgoA results");
 }
 
 

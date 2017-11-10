@@ -54,6 +54,8 @@ int main()
     }
     framework.run();
 
+    framework.report();
+
     return 0;
 }
 

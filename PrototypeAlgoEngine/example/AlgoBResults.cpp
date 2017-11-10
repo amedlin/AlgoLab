@@ -4,6 +4,7 @@
 
 AlgoBResults::AlgoBResults()
 {
+    setSignalName("AlgoB results");
 }
 
 AlgoBResults::~AlgoBResults()

@@ -4,6 +4,7 @@
 
 AlgoCResults::AlgoCResults()
 {
+    setSignalName("AlgoC results");
 }
 
 AlgoCResults::~AlgoCResults()

@@ -49,3 +49,8 @@ void algolab::AlgoFramework::run()
     _algo_sequencer.run();
 }
 
+void algolab::AlgoFramework::report()
+{
+    _result_collector.report();
+}
+

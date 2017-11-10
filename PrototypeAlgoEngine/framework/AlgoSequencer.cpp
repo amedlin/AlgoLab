@@ -18,7 +18,10 @@ AlgoSequencer::AlgoSequencer()
 
 AlgoSequencer::~AlgoSequencer()
 {
-    for (auto& th : _threads) th.join();
+    for (auto& th : _threads)
+    {
+        th.join();
+    }
 }
 
 void AlgoSequencer::add(std::shared_ptr<AlgoModule> algo_module)
@@ -105,10 +108,12 @@ bool AlgoSequencer::prepare(ResultCollector& collector)
 
 void AlgoSequencer::run()
 {
-    std::shared_ptr<algolab::SignalBase> null_signal;
-    _kickoff_thread_0.set_value(null_signal);
+    _kickoff_thread_0.set_value();
 
-    for (auto& th : _threads) th.join();
+    for (auto& th : _threads)
+    {
+        th.join();
+    }
     _threads.clear();
 }
 
