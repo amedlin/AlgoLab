@@ -20,7 +20,7 @@ public:
     //! Collect a named output signal and add it to collection
     void collect(const std::string& signal_name, std::shared_ptr<const SignalBase> signal);
 
-    std::shared_ptr<const SignalBase> viewSignal(const std::string& signal_name);
+    std::shared_ptr<const SignalBase> viewSignal(const std::string& signal_name) const;
 
     void report();
 

@@ -75,7 +75,7 @@ bool AlgoSequencer::prepare(ResultCollector& collector)
 {
     // Process the dependency tree and set up promises and futures.
     // Only call run() if this function returns true.
-    
+
     bool initiating_threads = true;
     SignalReady kickoff_signal = _kickoff_thread_0.get_future();
     for (Sequence::value_type& set: _sequence)

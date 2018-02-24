@@ -21,7 +21,7 @@ void ResultCollector::collect(const std::string& signal_name, std::shared_ptr<co
     _signals.insert(std::make_pair(signal_name, signal));
 }
 
-std::shared_ptr<const SignalBase> algolab::ResultCollector::viewSignal(const std::string& signal_name)
+std::shared_ptr<const SignalBase> algolab::ResultCollector::viewSignal(const std::string& signal_name) const
 {
     SignalMap::const_iterator it = _signals.find(signal_name);
     if (it != _signals.end())

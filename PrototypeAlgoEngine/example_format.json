@@ -1,0 +1,68 @@
+{
+  "modules": {
+
+    "Algo_A": {
+
+      "type": "AlgoA",
+      "settings": "My AlgoA settings.json",
+      "signals": {
+        "Algo_A result": {
+          "type": "AlgoAResult"
+        }
+      },
+      "depends_on": [ ]
+    },
+
+    "Algo_B": {
+
+      "type": "AlgoB",
+      "settings": "My AlgoB settings.json",
+      "signals": {
+        "Algo_B result": {
+          "type": "AlgoBResult"
+        }
+      },
+      "depends_on": [ "Algo_A result" ]
+    },
+
+    "Algo_C": {
+
+      "type": "AlgoC",
+      "settings": "",
+      "signals": {
+        "Algo_C result": {
+          "type": "AlgoCResult"
+        }
+      },
+      "depends_on": [ "Algo_A result" ]
+    },
+
+    "Algo_A_1": {
+
+      "type": "AlgoA",
+      "settings": "My AlgoA settings.json",
+      "signals": {
+        "Algo_A_1 result": {
+          "type": "AlgoAResult"
+        }
+      },
+      "depends_on": [ "Algo_B result" ]
+    },
+
+    "Algo_A_2": {
+
+      "type": "AlgoA",
+      "settings": "My alt AlgoA settings.json",
+      "signals": {
+        "Algo_A_2 result": {
+          "type": "AlgoAResult"
+        }
+      },
+      "depends_on": [ "Algo_A_1 result", "Algo_C result" ]
+    }
+
+  },
+
+  "cyclic": "False"
+
+}

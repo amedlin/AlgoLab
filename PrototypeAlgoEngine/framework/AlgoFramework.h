@@ -20,6 +20,8 @@ public:
     AlgoFramework();
     ~AlgoFramework();
 
+    // TODO: add setup of algorithm configuration from json file
+
     //! Add a new algorithm module to the runnable composite algorithm
     bool addAlgoModule(std::shared_ptr<AlgoModule> algo); // unique_ptr: assume for now that AlgoFramework takes ownership
 

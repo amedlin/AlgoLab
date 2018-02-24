@@ -2,6 +2,8 @@
 #include "AlgoB.h"
 #include "AlgoBSettings.h"
 #include "AlgoBResults.h"
+#include "AlgoAResults.h"
+#include "ResultCollector.h"
 #include "cast.h"
 
 using namespace algolab;
@@ -40,6 +42,9 @@ bool AlgoB::run(const ResultCollector& collector, std::shared_ptr<algolab::Signa
     std::shared_ptr<AlgoBResults> my_result(std::dynamic_pointer_cast<AlgoBResults>(result));
     if (my_result)
     {
+        std::shared_ptr<const AlgoAResults> signal_A = std::dynamic_pointer_cast<const AlgoAResults>(
+            collector.viewSignal("AlgoA results"));
+        // Could use result from signal_A here as input to AlgoB.
         my_result->append(0, 1);
     }
     return true;

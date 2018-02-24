@@ -8,10 +8,19 @@
 
 // A signal is composed of a set of channels. Each channel is a time series of scalar values.
 // vector signals can be decomposed into scalar components.
-// Each channel is addressed by a KEY. The VALUE associated with each channel KEY is 
+// Each channel is addressed by a KEY. The VALUE associated with each channel KEY is
 // comprised of a time series of values of a specific TYPE. Preferably each such TYPE also
 // allows for an uninitialized or default value, which is assigned to missing data in the series.
 // The output from a given algorithm is a collection of such signals.
+
+// References:
+// https://stackoverflow.com/questions/22654422/using-stdshared-ptrvoid-to-point-to-anything (see pointer_holder code)
+// https://en.wikipedia.org/wiki/Curiously_recurring_template_pattern (similar vein to above example)
+// C++ advice from Meyers:
+//      - factories should always return unique_ptr, since these can be converted to shared_ptr, but not the other way around
+//      -weak_ptrs are great for observer or listener design patterns, when the objects doing the notifications should not impact the resource lifetime of the listener objects
+//      - weak_ptrs can be used to prevent potential cycles in shared_ptr resource ownership that can result in memory leaks.
+//
 
 namespace algolab
 {
