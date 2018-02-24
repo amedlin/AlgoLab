@@ -3,6 +3,7 @@
 #include <iostream>
 
 #include "ResultCollector.h"
+#include "SignalBase.h"
 
 using namespace algolab;
 
@@ -35,6 +36,6 @@ void algolab::ResultCollector::report()
     std::cout << "Collected signals:" << std::endl;
     for (const auto& s: _signals)
     {
-        std::cout << s.first << std::endl;
+        std::cout << s.first << ": " << s.second->toString() << std::endl;
     }
 }

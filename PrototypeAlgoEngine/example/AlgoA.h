@@ -2,7 +2,6 @@
 
 #include "AlgoModule.h"
 #include "AlgoASettings.h"
-//#include "AlgoAResults.h"
 
 class AlgoA : public algolab::AlgoModule
 {
@@ -19,6 +18,8 @@ public:
 
 protected:
     AlgoA(const std::string& algo_name);
+
+    virtual bool run(const algolab::ResultCollector& collector, std::shared_ptr<algolab::SignalBase> result) override;
 
 private:
 

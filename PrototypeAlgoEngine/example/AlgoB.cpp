@@ -4,6 +4,8 @@
 #include "AlgoBResults.h"
 #include "cast.h"
 
+using namespace algolab;
+
 AlgoB::AlgoB(const std::string& algo_name) : algolab::AlgoModule(algo_name)
 {
 }
@@ -31,4 +33,14 @@ void AlgoB::setSettings(const algolab::AlgoSettings& base)
 {
     const AlgoBSettings& settings = algolab::assert_cast<const AlgoBSettings>(base);
     _current_settings = settings;
+}
+
+bool AlgoB::run(const ResultCollector& collector, std::shared_ptr<algolab::SignalBase> result)
+{
+    std::shared_ptr<AlgoBResults> my_result(std::dynamic_pointer_cast<AlgoBResults>(result));
+    if (my_result)
+    {
+        my_result->append(0, 1);
+    }
+    return true;
 }

@@ -15,3 +15,8 @@ std::string AlgoBResults::versionString()
 {
     return "0.1";
 }
+
+std::string AlgoBResults::toString() const
+{
+    return "";
+}

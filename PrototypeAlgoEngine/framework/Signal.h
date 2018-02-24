@@ -33,6 +33,10 @@ public:
     //    _signal_data
     //}
 
+    void append(const KeyType& k, const ValueType& v);
+
+    virtual std::string toString() const override;
+
 protected:
     Signal()
     {
@@ -49,5 +53,17 @@ protected:
 private:
     Container _signal_data;
 };
+
+template<typename _KeyType, typename _ValueType>
+std::string algolab::Signal<_KeyType, _ValueType>::toString() const
+{
+    return "Override in derived class to report signal";
+}
+
+template<typename _KeyType, typename _ValueType>
+void algolab::Signal<_KeyType, _ValueType>::append(const KeyType& k, const ValueType& v)
+{
+    _signal_data[k].push_back(v);
+}
 
 }

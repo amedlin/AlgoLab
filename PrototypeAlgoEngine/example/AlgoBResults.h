@@ -9,5 +9,7 @@ public:
 
     // Overrides
     virtual std::string versionString() override;
+
+    virtual std::string toString() const override;
 };
 

@@ -19,6 +19,8 @@ public:
         return _name;
     }
 
+    virtual std::string toString() const = 0;
+
 protected:
     SignalBase(const std::string& name = "")
     {

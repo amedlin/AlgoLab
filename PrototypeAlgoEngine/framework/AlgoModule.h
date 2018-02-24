@@ -46,7 +46,7 @@ public:
         return _is_root;
     }
 
-    //! Check whether the linkages between AlgoModules has any close loops. 
+    //! Check whether the linkages between AlgoModules has any close loops.
     bool networkIsClosed();
 
     //! Whether this module depends on any precedent modules.
@@ -68,7 +68,7 @@ public:
     //! All dependency relationships must be set (\sa setModuleDependency) before calling this function.
     //! Note: this might only need to be accessible to AlgoSequencer.
     bool receiveFutureWaitObjects();
-    
+
     //! Receive a specific provided future wait object
     void receiveFutureWaitObject(SignalReady fut);
 

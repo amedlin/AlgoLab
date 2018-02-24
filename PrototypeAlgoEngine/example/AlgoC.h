@@ -18,6 +18,8 @@ public:
 protected:
     AlgoC(const std::string& algo_name);
 
+    virtual bool run(const algolab::ResultCollector& collector, std::shared_ptr<algolab::SignalBase> result) override;
+
 private:
 
     AlgoCSettings _current_settings;
