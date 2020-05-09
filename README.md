@@ -41,8 +41,3 @@ This is a private repository.
 * Writing tests
 * Code review
 * Other guidelines
-
-### Who do I talk to? ###
-
-* Andrew Medlin
-* Email: andrew@chiba-medlin.net
