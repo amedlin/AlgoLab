@@ -3,6 +3,10 @@
 AlgoLab is a C++ multithreaded algorithm aggregation and sequencing framework that removes the messy 
 and error-prone glue code that is often associated with developing compositional algorithmic systems.
 
+AlgoLab analyses dependencies between modules to generate an execution graph, and then automatically
+parallelizes execution as much as possible using multithreading in such a way that preserves the
+algorithmic depencies and dependent ordering.
+
 With AlgoLab, you can quickly design and prototype composite algorithms consisting of flexible and
 modular sub-algorithms, and have them up and running efficiently and concurrently in a short space
 of time.

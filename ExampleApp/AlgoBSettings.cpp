@@ -1,4 +1,4 @@
-#include "stdafx.h"
+
 #include "AlgoBSettings.h"
 
 AlgoBSettings::AlgoBSettings()

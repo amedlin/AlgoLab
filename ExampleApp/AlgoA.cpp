@@ -1,4 +1,4 @@
-#include "stdafx.h"
+
 #include "AlgoA.h"
 #include "AlgoASettings.h"
 #include "AlgoAResults.h"

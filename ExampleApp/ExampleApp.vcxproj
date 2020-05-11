@@ -1,5 +1,5 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
       <Configuration>Debug</Configuration>
@@ -19,9 +19,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{453EE958-BA03-40E4-8168-ADB40292EE39}</ProjectGuid>
-    <Keyword>Win32Proj</Keyword>
-    <RootNamespace>PrototypeAlgoEngine</RootNamespace>
+    <VCProjectVersion>16.0</VCProjectVersion>
+    <ProjectGuid>{C0D94DF5-C65B-42B9-A47A-9228A611066D}</ProjectGuid>
+    <RootNamespace>ExampleApp</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -83,138 +83,113 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
-      <PrecompiledHeader>Use</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
-      <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>framework;D:\SDKs\BOOST\boost_1_63_0</AdditionalIncludeDirectories>
-      <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <MinimalRebuild>false</MinimalRebuild>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>..\AlgoLabCore;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp14</LanguageStandard>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(OutDir);D:\SDKs\BOOST\boost_1_63_0\stage\lib</AdditionalLibraryDirectories>
+      <AdditionalDependencies>AlgoLabCore.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <ProjectReference>
+      <UseLibraryDependencyInputs>false</UseLibraryDependencyInputs>
+    </ProjectReference>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <PrecompiledHeader>Use</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
-      <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>framework;D:\SDKs\BOOST\boost_1_63_0</AdditionalIncludeDirectories>
-      <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <OmitFramePointers>false</OmitFramePointers>
-      <MinimalRebuild>false</MinimalRebuild>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>..\AlgoLabCore;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp14</LanguageStandard>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(OutDir);D:\SDKs\BOOST\boost_1_63_0\stage\lib</AdditionalLibraryDirectories>
+      <AdditionalDependencies>AlgoLabCore.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <ProjectReference>
+      <UseLibraryDependencyInputs>false</UseLibraryDependencyInputs>
+    </ProjectReference>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
-      <PrecompiledHeader>Use</PrecompiledHeader>
-      <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>framework;D:\SDKs\BOOST\boost_1_63_0</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>..\AlgoLabCore;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp14</LanguageStandard>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(OutDir);D:\SDKs\BOOST\boost_1_63_0\stage\lib</AdditionalLibraryDirectories>
+      <AdditionalDependencies>AlgoLabCore.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
-      <PrecompiledHeader>Use</PrecompiledHeader>
-      <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>framework;D:\SDKs\BOOST\boost_1_63_0</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>..\AlgoLabCore;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp14</LanguageStandard>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(OutDir);D:\SDKs\BOOST\boost_1_63_0\stage\lib</AdditionalLibraryDirectories>
+      <AdditionalDependencies>AlgoLabCore.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <Text Include="ReadMe.txt" />
-    <Text Include="example_format.json" />
+    <ClCompile Include="AlgoA.cpp" />
+    <ClCompile Include="AlgoAResults.cpp" />
+    <ClCompile Include="AlgoASettings.cpp" />
+    <ClCompile Include="AlgoB.cpp" />
+    <ClCompile Include="AlgoBResults.cpp" />
+    <ClCompile Include="AlgoBSettings.cpp" />
+    <ClCompile Include="AlgoC.cpp" />
+    <ClCompile Include="AlgoCResults.cpp" />
+    <ClCompile Include="AlgoCSettings.cpp" />
+    <ClCompile Include="PrototypeAlgo.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="example\AlgoA.h" />
-    <ClInclude Include="example\AlgoAResults.h" />
-    <ClInclude Include="example\AlgoASettings.h" />
-    <ClInclude Include="example\AlgoB.h" />
-    <ClInclude Include="example\AlgoBResults.h" />
-    <ClInclude Include="example\AlgoBSettings.h" />
-    <ClInclude Include="example\AlgoC.h" />
-    <ClInclude Include="example\AlgoCResults.h" />
-    <ClInclude Include="example\AlgoCSettings.h" />
-    <ClInclude Include="framework\AlgoFramework.h" />
-    <ClInclude Include="framework\AlgoModule.h" />
-    <ClInclude Include="framework\AlgoSequencer.h" />
-    <ClInclude Include="framework\AlgoSettings.h" />
-    <ClInclude Include="framework\AlgoSettingsFactory.h" />
-    <ClInclude Include="framework\cast.h" />
-    <ClInclude Include="framework\future_promise.h" />
-    <ClInclude Include="framework\ResultCollector.h" />
-    <ClInclude Include="framework\serializable.h" />
-    <ClInclude Include="framework\SettingsManager.h" />
-    <ClInclude Include="framework\Signal.h" />
-    <ClInclude Include="framework\SignalBase.h" />
-    <ClInclude Include="framework\SignalFactory.h" />
-    <ClInclude Include="framework\Versioned.h" />
-    <ClInclude Include="stdafx.h" />
-    <ClInclude Include="targetver.h" />
+    <ClInclude Include="AlgoA.h" />
+    <ClInclude Include="AlgoAResults.h" />
+    <ClInclude Include="AlgoASettings.h" />
+    <ClInclude Include="AlgoB.h" />
+    <ClInclude Include="AlgoBResults.h" />
+    <ClInclude Include="AlgoBSettings.h" />
+    <ClInclude Include="AlgoC.h" />
+    <ClInclude Include="AlgoCResults.h" />
+    <ClInclude Include="AlgoCSettings.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="example\AlgoA.cpp" />
-    <ClCompile Include="example\AlgoAResults.cpp" />
-    <ClCompile Include="example\AlgoASettings.cpp" />
-    <ClCompile Include="example\AlgoB.cpp" />
-    <ClCompile Include="example\AlgoBResults.cpp" />
-    <ClCompile Include="example\AlgoBSettings.cpp" />
-    <ClCompile Include="example\AlgoC.cpp" />
-    <ClCompile Include="example\AlgoCResults.cpp" />
-    <ClCompile Include="example\AlgoCSettings.cpp" />
-    <ClCompile Include="example\PrototypeAlgoEngine.cpp" />
-    <ClCompile Include="framework\AlgoFramework.cpp" />
-    <ClCompile Include="framework\AlgoModule.cpp" />
-    <ClCompile Include="framework\AlgoSequencer.cpp" />
-    <ClCompile Include="framework\AlgoSettings.cpp" />
-    <ClCompile Include="framework\ResultCollector.cpp" />
-    <ClCompile Include="framework\SettingsManager.cpp" />
-    <ClCompile Include="framework\Signal.cpp" />
-    <ClCompile Include="stdafx.cpp">
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
-    </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Makefile" />
+    <None Include="example_format.json" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
-  <ProjectExtensions>
-    <VisualStudio>
-      <UserProperties />
-    </VisualStudio>
-  </ProjectExtensions>
 </Project>

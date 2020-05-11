@@ -1,8 +1,6 @@
 // PrototypeAlgoEngine.cpp : Defines the entry point for the console application.
 //
 
-#include "stdafx.h"
-
 #include "AlgoFramework.h"
 #include "AlgoA.h"
 #include "AlgoB.h"

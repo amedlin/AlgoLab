@@ -1,4 +1,4 @@
-#include "stdafx.h"
+#include "pch.h"
 
 #include "AlgoSequencer.h"
 #include "SignalBase.h"

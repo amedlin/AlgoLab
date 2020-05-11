@@ -1,4 +1,4 @@
-#include "stdafx.h"
+
 #include "AlgoB.h"
 #include "AlgoBSettings.h"
 #include "AlgoBResults.h"

@@ -1,4 +1,4 @@
-#include "stdafx.h"
+#include "pch.h"
 
 #include "AlgoModule.h"
 #include "ResultCollector.h"
