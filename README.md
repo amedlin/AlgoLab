@@ -21,11 +21,13 @@ modern C++.
 
 Read more below to learn how to use AlgoLab for fast, compositional algorithm design.
 
+This project is experimental and is a work in progress.
+
 ### What is this repository for? ###
 
 * AlgoLab is a modular composition framework for designing and executing complex algorithms.
 * This is the main repository for obtaining AlgoLab. It is a private repository and not open to public.
-* Current version: v0.1
+* Current version: v0.1alpha (unreleased)
 
 ### How do I get set up? ###
 
